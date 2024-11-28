@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference Tracker</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Conference Tracker</h1>
+        <nav>
+            <a href="/addconference">Add Conference</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Upcoming Conferences</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Speaker</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop through the list of conferences -->
+                <tr th:each="conference : ${conferences}">
+                    <td th:text="${conference.id}"></td>
+                    <td th:text="${conference.name}"></td>
+                    <td th:text="${conference.dateTime}"></td>
+                    <td th:text="${conference.location}"></td>
+                    <td th:text="${conference.speaker}"></td>
+                    <td th:text="${conference.status ? 'Active' : 'Inactive'}"></td>
+                    <td>
+                        <a th:href="@{/update/{id}(id=${conference.id})}">Edit</a>
+                        <a th:href="@{/delete/{id}(id=${conference.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Conference Tracker</p>
+    </footer>
+</body>
+</html>

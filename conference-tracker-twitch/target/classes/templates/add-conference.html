@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Conference</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Add Conference</h1>
+    </header>
+
+    <main>
+        <form action="/addconference" method="post" th:object="${conference}">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" th:field="*{name}" required>
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+            </div>
+            <div>
+                <label for="dateTime">Date & Time:</label>
+                <input type="datetime-local" id="dateTime" name="dateTime" th:field="*{dateTime}" required>
+            </div>
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" th:field="*{location}" required>
+                <p th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></p>
+            </div>
+            <div>
+                <label for="speaker">Speaker:</label>
+                <input type="text" id="speaker" name="speaker" th:field="*{speaker}" required>
+                <p th:if="${#fields.hasErrors('speaker')}" th:errors="*{speaker}"></p>
+            </div>
+            <div>
+                <label for="status">Status:</label>
+                <input type="checkbox" id="status" name="status" th:field="*{status}">
+            </div>
+            <div>
+                <button type="submit">Add Conference</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

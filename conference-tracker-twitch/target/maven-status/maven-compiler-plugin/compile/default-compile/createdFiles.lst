@@ -1,0 +1,6 @@
+com\manning\sbip\twitch\controller\ConferenceController.class
+com\manning\sbip\twitch\service\ConferenceService.class
+com\manning\sbip\twitch\ConferenceTrackerTwitchApplication.class
+com\manning\sbip\twitch\service\ConferenceServiceImpl.class
+com\manning\sbip\twitch\model\Conference.class
+com\manning\sbip\twitch\repository\ConferenceRepository.class
